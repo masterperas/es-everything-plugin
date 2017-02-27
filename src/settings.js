@@ -40,7 +40,7 @@ class Settings extends React.Component {
          const error ={message:null};
 
          if(!utils.checkIfEsExists(value)){
-             console.log('file does not exist');
+             
              error.message='Could not find es.exe at that path';
          }
          return error;

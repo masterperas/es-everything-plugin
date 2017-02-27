@@ -13,9 +13,6 @@ const fn = ({
     config,
     actions
 }) => {
-    console.log('1:'+config.get('esevdir'));
-    //console.log('2:'+config.set('esevdir','teste'));
-    //console.log('3:'+config.get('esevdir'));
     const found = search(["settings"], term).length > 0
 
     if(found){

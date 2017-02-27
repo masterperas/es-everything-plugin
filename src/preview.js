@@ -1,7 +1,7 @@
 const React = require('react');
 const Spinner = require('react-spinkit');
 const {
-    exec
+    execFile
 } = require('child_process');
 const File = require('./file');
 const utils = require('./utils');
@@ -38,11 +38,11 @@ class Preview extends React.Component {
 
     componentDidMount() {
         const espath = this.props.path;
-        console.log('espath'+espath);
+
         if (utils.checkIfEsExists(espath)) {
-            var term2 = (this.props.term);
-            var cmd = espath+"/es.exe -n 10 -s *" + term2 + "* ";
-            exec(cmd, this.handleResults);
+            var term2 ='*'+this.props.term+'*';
+            var cmd = espath+"/es.exe ";// -n 10 -s *" + term2 + "* ";
+            execFile(cmd,['n','10','s',term2], this.handleResults);
         }
     }
 
@@ -84,11 +84,9 @@ class Preview extends React.Component {
         const elements = [...this.renderAnswers()];
 
         return (
-          <div>
               <div className='preview'>
                   {elements}
               </div>
-          </div>
         );
     }
 }

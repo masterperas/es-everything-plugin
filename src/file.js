@@ -18,12 +18,12 @@ class File extends React.Component {
   }
 
   componentDidMount() {
-    console.log('componentDidMount')
+
   }
 
   renderBody() {
-    const { file, goBack } = this.props;
-    console.log(file);
+    const { file } = this.props;
+
     return (
       <div key="-1">
         <div className="file-line is-small" tabIndex="1">

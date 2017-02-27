@@ -23,14 +23,13 @@ class Preview extends React.Component {
   }
 
   handleResults(error, stdout, stderr) {
-          console.log(stdout.split('\n'));
+
           var results = stdout.split('\n');
           this.setState({
             files: results,
             error: { message: null, type: null }
           });
 
-          console.log(stderr);
   }
 
   componentDidMount() {

@@ -1,46 +1,17 @@
-# Cerebro Plugin
+# Cerebro Everything by voidtools interface plugin
 
-> It is boilerplate to create plugins for [Cerebro app](http://www.cerebroapp.com)
+Simply adds a tool to search your computer on windows using Everything
 
-## Usage
-* Clone this repo to your machine;
-* Edit `package.json` – `name`, `description`, `author` and `repository` fields;
-* Run `npm install` – you are ready to build your plugin!
+## Dependencies
 
-## Debugging your plugin
-* Open [Cerebro app](http://www.cerebroapp.com);
-* Enter `settings` and open preview for Cerebro Settings;
-* Turn on developer mode;
-* Now you have development submenu in tray menu. Choose reload and DevTools (main) to open developer tools.
+Requires Everything by voidtools - https://www.voidtools.com/
+Requires the ES executable to access the cli - https://www.voidtools.com/support/everything/command_line_interface/
 
-![](screenshot.png)
+## Known Limitations
+    Currently requires you to edit the file to identify location of the ES executable
 
-Put your plugin directory to `~/Library/Application\ Support/Cerebro/plugins/`. Easiest way to do it is to use symbolic links with built-in command:
-```
-npm run debug
-```
-
-
-> On windows use [cygwin](https://www.cygwin.com/) or [git bash](https://git-scm.com/download/win) instead of cmd.exe and `./scripts/debug` command instead of `npm run debug`.
-If you choose to use cmd.exe, use `npm run debug:windows`
-
-Or if you running Cerebro from source code:
-```
-npm run debug -- dev
-```
-Or in cmd.exe
-```
-npm run debug:windows dev
-```
-
-## Documentation
-Use Cerebro [documentation](https://github.com/KELiON/cerebro/blob/master/docs/plugins.md) for plugins.
 
 ## Related
-
-* [Cerebro](http://github.com/KELiON/cerebro) – main repo for Cerebro app;
-* [cerebro tools](http://github.com/KELiON/cerebro-tools) – package with tools to simplify package creation;
-
-## License
-
-MIT © [Alexandr Subbotin](http://asubbotin.ru)
+    * [cerebro-stackoverflow](https://github.com/BrainMaestro/cerebro-stackoverflow/) - Used as a source to figure things out
+    * [Cerebro](http://github.com/KELiON/cerebro) – main repo for Cerebro app
+    * [cerebro plugin boilerplate](https://github.com/KELiON/cerebro-plugin) – boilerplate used to create this plugin

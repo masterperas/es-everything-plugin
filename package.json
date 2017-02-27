@@ -1,13 +1,13 @@
 {
-  "name": "cerebro-plugin",
-  "version": "0.0.2",
+  "name": "cerebro-es-everything-plugin",
+  "version": "0.0.1",
   "description": "",
-  "license": "MIT",
-  "repository": "KELiON/cerebro-plugin",
+  "license": "GPLv3",
+  "repository": "/masterperas/es-everything-plugin",
   "author": {
-    "name": "Alexandr Subbotin",
-    "email": "kelionweb@gmail.com",
-    "url": "asubbotin.ru"
+    "name": "Nuno Furtado",
+    "email": "masterperas@gmail.com",
+    "url": ""
   },
   "engines": {
     "node": ">=4"
@@ -20,8 +20,8 @@
   },
   "main": "dist/index.js",
   "keywords": [
-    "cerebro",
-    "cerebro-plugin"
+    "voidtools",
+    "everything"
   ],
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -33,8 +33,13 @@
     "css-loader": "^0.26.0",
     "react": "^15.4.1",
     "rimraf": "^2.6.1",
+    "react-spinkit": "^2.0.0",
+    "he": "^1.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "2.1.0-beta.27"
+    "webpack": "2.1.0-beta.27",
+    "sass-loader": "^5.0.1",
+    "style-loader": "^0.13.1",
+    "node-sass": "^4.5.0"
   }
 }

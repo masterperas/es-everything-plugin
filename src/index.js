@@ -1,10 +1,29 @@
 'use strict';
+const React = require('react');
 
-const plugin = ({term, display, actions}) => {
-  // It is your main plugin function
-  // do something and call display() with your results
-};
+const Preview = require('preview');
+const id = 'esevplugin';
+
+const fn = ({
+    term,
+    display,
+    update,
+    actions
+}) => {
+    display({
+        id: 'eseverythingplugin',
+        //icon,
+        order: 11,
+        title: `Search Everything for ${term}`,
+        getPreview: () => < Preview term = {
+            term
+        }
+        />
+    });};
+
 
 module.exports = {
-  fn: plugin
+    fn,
+    keyword: 'ev',
+    name: 'Search Everything'
 }

@@ -2,7 +2,8 @@ const React = require('react');
 const Spinner = require('react-spinkit');
 const ErrorDiv = require('./error')
 
-var path = require('fs');
+//var path = require('fs');
+var utils = require('./utils');
 require('./styles.sass');
 
 class Settings extends React.Component {
@@ -13,7 +14,7 @@ class Settings extends React.Component {
 
         this.changeConfig = this.changeConfig.bind(this);
         this.state = {
-            esevpluginpath : get('esevpluginpath'),
+            esevpluginpath : get(utils.CONSTANTS.PATH_KEY),
             error: {
                 message: null,
                 type: null,
@@ -26,7 +27,7 @@ class Settings extends React.Component {
 
         const error = this.checkIfFileExists(value)
 
-       this.props.config.set('esevpluginpath', value)
+       this.props.config.set(utils.CONSTANTS.PATH_KEY, value)
        this.setState({
            esevpluginpath: value,
            error : error
@@ -35,11 +36,12 @@ class Settings extends React.Component {
      }
 
       checkIfFileExists(value){
-         var fullpath = value +"\\es.exe";
+
          const error ={message:null};
-         if(!path.existsSync(fullpath)){
+
+         if(!utils.checkIfEsExists(value)){
              console.log('file does not exist');
-             error.message=fullpath+' does not exist!';
+             error.message='Could not find es.exe at that path';
          }
          return error;
      }

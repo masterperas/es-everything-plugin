@@ -4,6 +4,7 @@ import { search } from 'cerebro-tools'
 const Preview = require('preview');
 const Settings = require('settings');
 const id = 'esevplugin';
+var utils = require('./utils');
 
 const fn = ({
     term,
@@ -16,6 +17,7 @@ const fn = ({
     //console.log('2:'+config.set('esevdir','teste'));
     //console.log('3:'+config.get('esevdir'));
     const found = search(["settings"], term).length > 0
+
     if(found){
         display({
             id: 'eseverythingpluginsettings',
@@ -26,6 +28,7 @@ const fn = ({
         });
     }
 
+    const path = config.get(utils.CONSTANTS.PATH_KEY);
     display({
         id: 'eseverythingplugin',
         //icon,
@@ -33,7 +36,7 @@ const fn = ({
         title: `Search Everything for ${term}`,
         getPreview: () => < Preview term = {
             term
-        }
+        } path = { path }
         />
     });
 };

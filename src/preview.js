@@ -4,71 +4,97 @@ const {
     exec
 } = require('child_process');
 const File = require('./file');
-
+const utils = require('./utils');
+const ErrorDiv = require('./error')
 
 class Preview extends React.Component {
-  constructor(props) {
+    constructor(props) {
 
-    super(props);
-    this.handleResults = this.handleResults.bind(this);
+        super(props);
+        this.handleResults = this.handleResults.bind(this);
 
-    this.state = {
-      search: null,
-      files: [],
-      error: {
-        message: null,
-        type: null,
-      },
+        this.state = {
+            search: null,
+            files: [],
+            error: {
+                message: null,
+                type: null,
+            },
+        }
     }
-  }
 
-  handleResults(error, stdout, stderr) {
+    handleResults(error, stdout, stderr) {
 
-          var results = stdout.split('\n');
-          this.setState({
+        var results = stdout.split('\n');
+        this.setState({
             files: results,
-            error: { message: null, type: null }
-          });
+            error: {
+                message: null,
+                type: null
+            }
+        });
 
-  }
-
-  componentDidMount() {
-    var term2 = (this.props.term);
-    var cmd = "d:/bin/everything/es.exe -n 10 -s *" + term2 + "* ";
-          exec(cmd,this.handleResults);
-  }
-
-  handleClick(link) {
-
-  }
-  renderAnswers() {
-      return this.state.files.map((file, idx) => (
-        <File file={file} key={idx} />
-      ));
     }
 
-  render() {
-    const { search, error, files } = this.state;
-
-    if (error.message) {
-      return error.message
-      ;
+    componentDidMount() {
+        const espath = this.props.path;
+        console.log('espath'+espath);
+        if (utils.checkIfEsExists(espath)) {
+            var term2 = (this.props.term);
+            var cmd = espath+"/es.exe -n 10 -s *" + term2 + "* ";
+            exec(cmd, this.handleResults);
+        }
     }
 
-    if (! files.length) {
-      return <Spinner spinnerName='wave' noFadeIn />
+    renderAnswers() {
+        return this.state.files.map((file, idx) => (
+            <File file = {file} key = {idx} />
+        ));
     }
-    const elements = [...this.renderAnswers()];
-    return (
-      <div className='preview'>
-          {elements}
-      </div>
-    );
-  }
+
+    render() {
+        const {
+            search,
+            error,
+            files
+        } = this.state;
+
+        if (error.message) {
+            return <ErrorDiv error={this.state.error} />;
+        }
+
+        const espath = this.props.path;
+
+        if (!utils.checkIfEsExists(espath)) {
+            this.setState({
+                files: [],
+                error: {
+                    message: 'Could not find es.exe. Please check your Settings'
+                }
+            });
+
+        }
+
+        if (!files.length) {
+            return(
+                    <Spinner spinnerName = 'wave' noFadeIn / >
+            )
+        }
+
+        const elements = [...this.renderAnswers()];
+
+        return (
+          <div>
+              <div className='preview'>
+                  {elements}
+              </div>
+          </div>
+        );
+    }
 }
 
 Preview.propTypes = {
-  term: React.PropTypes.string.isRequired,
+    term: React.PropTypes.string.isRequired,
 }
 
 module.exports = Preview;

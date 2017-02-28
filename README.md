@@ -1,6 +1,10 @@
 # Cerebro Everything by voidtools interface plugin
 
-Simply adds a tool to search your computer on windows using Everything
+Simply adds a tool to search your computer on windows using Everything by voidtools.
+
+This is done by using the es cli available from voidtools.
+![](usage.png)
+![](settings.png)
 
 ## Dependencies
 
@@ -8,7 +12,8 @@ Requires Everything by voidtools - https://www.voidtools.com/
 Requires the ES executable to access the cli - https://www.voidtools.com/support/everything/command_line_interface/
 
 ## Known Limitations
-    Currently requires you to edit the file to identify location of the ES executable
+    Presentation is not the best
+    Only shows 20 results, but this value is fixed
 
 
 ## Related

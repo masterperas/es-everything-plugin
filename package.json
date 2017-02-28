@@ -1,6 +1,6 @@
 {
   "name": "cerebro-es-everything-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "license": "GPLv3",
   "repository": "/masterperas/es-everything-plugin",
@@ -21,7 +21,8 @@
   "main": "dist/index.js",
   "keywords": [
     "voidtools",
-    "everything"
+    "everything",
+    "cerebro-plugin"
   ],
   "devDependencies": {
     "babel-cli": "^6.18.0",

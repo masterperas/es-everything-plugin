@@ -4,7 +4,7 @@ Simply adds a tool to search your computer on windows using Everything by voidto
 
 This is done by using the es cli available from voidtools.
 ![](usage.png)
-![](settings.png)
+![](settings_view.png)
 
 ## Dependencies
 

@@ -24,7 +24,9 @@ class Preview extends React.Component {
     }
 
     handleResults(error, stdout, stderr) {
-
+        console.log(error);
+        console.log(stdout);
+        console.log(stderr);
         var results = stdout.split('\n');
         this.setState({
             files: results,
@@ -40,9 +42,10 @@ class Preview extends React.Component {
         const espath = this.props.path;
 
         if (utils.checkIfEsExists(espath)) {
-            var term2 ='*'+this.props.term+'*';
+            var term2 =this.props.term;
+            console.log(term2);
             var cmd = espath+"/es.exe ";// -n 10 -s *" + term2 + "* ";
-            execFile(cmd,['n','10','s',term2], this.handleResults);
+            execFile(cmd,['s','n','20',term2], this.handleResults);
         }
     }
 

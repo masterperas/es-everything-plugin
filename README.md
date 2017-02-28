@@ -1,6 +1,7 @@
 # Cerebro Everything by voidtools interface plugin
 [![npm](https://img.shields.io/npm/v/cerebro-es-everything-plugin.svg)](https://www.npmjs.com/package/cerebro-es-everything-plugin)
 [![npm](https://img.shields.io/npm/dt/cerebro-es-everything-plugin.svg)](https://www.npmjs.com/package/cerebro-es-everything-plugin)
+
 Simply adds a tool to search your computer on windows using Everything by voidtools.
 
 This is done by using the es cli available from voidtools.

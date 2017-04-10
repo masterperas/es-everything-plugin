@@ -45,7 +45,7 @@ class Preview extends React.Component {
             var term2 =this.props.term;
             console.log(term2);
             var cmd = espath+"/es.exe ";// -n 10 -s *" + term2 + "* ";
-            execFile(cmd,['s','n','20',term2], this.handleResults);
+            execFile(cmd,['-s','-n','20',term2], this.handleResults);
         }
     }
 
